@@ -1,5 +1,55 @@
 {%extends "base.html"%}
 {%block title%}ushauriKE{%endblock%}
+{% from "_formhelpers.html" import render_field %}
 {%block content%}
-<i class="fa fa-user fa-2x"></i>
+<div class="container" style="margin-top: 70px;">
+    <div class="jumbotron bg-transparent shadow-sm rounded-0">
+        <p class="lead">Are you afraid of speaking out?</p>
+        <p>What if we gave you a platform to ask your question without revealing your identity? That is what
+            we are giving you here at USHAURIKE. Get advice on any of your problems through our platform.
+        </p>
+    </div>
+    <div class="col-md-4 col-lg-4">
+        <div class="card border-0">
+            <img src="{{url_for('static',filename='images/question.svg')}}" alt="" class="card-img-top">
+            <div class="card-body">
+                <p class="card-text">
+                    Ask your question and wait for your peers to advise you.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-lg-4 offset-md-4 offset-lg-4">
+        <div class="card border-0">
+            <img src="{{url_for('static',filename='images/answer.svg')}}" alt="" class="card-img-top">
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                Your peers advise you on possible ways to solve your problem.
+            </p>
+        </div>
+    </div>
+    <div class="col-md-4 col-lg-4 offset-md-8 offset-lg-8">
+        <div class="card border-0">
+            <img src="{{url_for('static',filename='images/happy.svg')}}" alt="" class="card-img-top">
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                Your problem is solved and you are happy again.
+            </p>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-6 offset-md-3 offset-lg-3 shadow p-5 mb-4 mt-4">
+    <p class="font-weight-bold">start adventure with ushaurike</p>
+    <form method='POST'>
+        <dl>
+            {{render_field(form.email,class='form-control')}}
+            {{render_field(form.password,class='form-control')}}
+            {{render_field(form.password_confirm,class='form-control')}}
+        </dl>
+        <button type="submit" class="btn btn-success rounded-0">START MY JOURNEY WITH USHAURIKE</button>
+    </form>
+    </div>
+
+</div>
 {%endblock%}
